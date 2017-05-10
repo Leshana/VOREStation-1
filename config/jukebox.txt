@@ -1,0 +1,2 @@
+#Jukebox configuration file
+#Sound file | Song Title | <0 = normal or 1 = secret>
