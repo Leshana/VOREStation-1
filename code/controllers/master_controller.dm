@@ -100,10 +100,3 @@ datum/controller/game_controller/proc/setup_objects()
 			var/obj/machinery/atmospherics/unary/vent_scrubber/T = U
 			T.broadcast_status()
 		CHECK_SLEEP_MASTER
-
-	admin_notice("<span class='danger'>Initializing turbolifts</span>", R_DEBUG)
-	for(var/thing in turbolifts)
-		var/obj/turbolift_map_holder/lift = thing
-		if(!QDELETED(lift))
-			lift.initialize()
-			CHECK_SLEEP_MASTER

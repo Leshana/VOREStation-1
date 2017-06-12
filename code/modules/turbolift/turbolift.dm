@@ -135,11 +135,10 @@
 		target_floor.arrived(src)
 		target_floor = null
 
-		sleep(15)
-		control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"")
-		sleep(floor_wait_delay)
+		spawn(15)
+			control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"")
 
-		return 1
+		return floor_wait_delay + 15
 
 	// Work out where we're headed.
 	var/datum/turbolift_floor/next_floor

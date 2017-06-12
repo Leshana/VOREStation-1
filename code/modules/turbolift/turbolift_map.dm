@@ -15,11 +15,11 @@
 	var/list/areas_to_use = list()
 
 /obj/turbolift_map_holder/Destroy()
-	turbolifts -= src
+	SSturbolifts.turbolift_map_holder -= src
 	return ..()
 
 /obj/turbolift_map_holder/New()
-	turbolifts += src
+	SSturbolifts.turbolift_map_holder += src
 	..()
 
 /obj/turbolift_map_holder/initialize()
@@ -163,6 +163,7 @@
 
 				if(tx >= ux && tx <= ex && ty >= uy && ty <= ey)
 					floor_turfs += checking
+				CHECK_TICK
 
 		// Place exterior doors.
 		for(var/tx = door_x1 to door_x2)
@@ -185,6 +186,7 @@
 					else
 						cfloor.doors += newdoor
 						newdoor.floor = cfloor
+				CHECK_TICK
 
 		// Place exterior control panel.
 		var/turf/placing = locate(ext_panel_x, ext_panel_y, cz)
@@ -217,6 +219,7 @@
 		var/area/A = locate(area_path)
 		cfloor.set_area_ref("\ref[A]")
 		az++
+		CHECK_TICK
 
 	// Place lift panel.
 	var/turf/T = locate(int_panel_x, int_panel_y, uz)
